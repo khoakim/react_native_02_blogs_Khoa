@@ -1,0 +1,58 @@
+npx expo-cli init blogs --yarn
+\*\* Add C:\Users\{USER}\AppData\Local\Yarn\bin such as C:\Users\steph\AppData\Local\Yarn\bin to ENV
+yarn add @react-navigation/native
+
+expo install react-native-screens react-native-safe-area-context
+yarn add @react-navigation/native-stack
+
+=====
+Setting up JSON Server in a different folder with
+db.json
+{
+"blogposts": [
+{
+"id": 1,
+"title": "API Post",
+"content": "content for my post"
+},
+{
+"title": "Jgsz",
+"content": "",
+"id": 2
+}
+]
+}
+package.json
+{
+"name": "jsonserver",
+"version": "1.0.0",
+"description": "",
+"main": "index.js",
+"scripts": {
+"db": "json-server -w db.json",
+"tunnel": "ngrok http 3000"
+},
+"author": "",
+"license": "ISC",
+"dependencies": {
+"axios": "^0.22.0",
+"json-server": "^0.17.0",
+"ngrok": "^4.2.2"
+}
+}
+
+To use JSON server, NEED TO BOTH command (in seperate terminal)
+"npm run tunnel"
+"npm run db"
+
+****\*\***** Update src/api/jsonServer.js baseURL with newly generated baseURL from ngrok ****\*****
+****\*\***** Need to do it every run ******\*******
+
+$baseURL/blogposts
+Get /blogposts Retrieve all stored blog posts
+Get /blogposts/{id} Get blog post with particular ID
+post /blogposts Create new blog post
+PUT /blogposts/{id} Update blog post given ID
+Delete /blogposts/{id} Delete blog post given ID
+
+=====

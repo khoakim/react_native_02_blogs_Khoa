@@ -5,39 +5,46 @@ yarn add @react-navigation/native
 expo install react-native-screens react-native-safe-area-context
 yarn add @react-navigation/native-stack
 
+
+git remote add origin https://github.com/khoakim/react_native_02_blogs_Khoa.git
+git branch -M main
+git push -u origin main
+
+
 =====
 Setting up JSON Server in a different folder with
 db.json
 {
-"blogposts": [
-{
-"id": 1,
-"title": "API Post",
-"content": "content for my post"
-},
-{
-"title": "Jgsz",
-"content": "",
-"id": 2
+    "blogposts": [
+        {
+        "id": 1,
+        "title": "API Post",
+        "content": "content for my post"
+        },
+        {
+        "title": "Jgsz",
+        "content": "",
+        "id": 2
+        }
+    ]
 }
-]
-}
+=====
 package.json
 {
-"name": "jsonserver",
-"version": "1.0.0",
-"description": "",
-"main": "index.js",
-"scripts": {
-"db": "json-server -w db.json",
-"tunnel": "ngrok http 3000"
+    "name": "jsonserver",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+    "db": "json-server -w db.json",
+    "tunnel": "ngrok http 3000"
 },
-"author": "",
-"license": "ISC",
-"dependencies": {
-"axios": "^0.22.0",
-"json-server": "^0.17.0",
-"ngrok": "^4.2.2"
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+    "axios": "^0.22.0",
+    "json-server": "^0.17.0",
+    "ngrok": "^4.2.2"
 }
 }
 

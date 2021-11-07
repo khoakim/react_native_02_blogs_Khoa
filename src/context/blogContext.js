@@ -24,10 +24,12 @@ const ContextProvider = ({ children }) => {
 
   const getPost = () => {
     const fetchData = async () => {
-      fetch("/blogposts").then(response => {
-        console.log(response.data);
-        dispatch({ type: "GET_BlogPosts", payload: response.data });
-      });
+      fetch("/blogposts")
+        .then(response => {
+          console.log(response.data);
+          dispatch({ type: "GET_BlogPosts", payload: response.data });
+        })
+        .catch(err => console.log("error is ", err));
     };
     fetchData();
   };

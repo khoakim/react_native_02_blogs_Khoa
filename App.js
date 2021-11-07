@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Button } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 
@@ -23,7 +23,20 @@ export default function App() {
           />
           <Stack.Screen name="Edit" component={EditScreen} />
           <Stack.Screen name="Show" component={ShowScreen} />
-          <Stack.Screen name="Index" component={IndexScreen} />
+          <Stack.Screen
+            name="Index"
+            component={IndexScreen}
+            options={({ navigation }) => ({
+              headerTitle: props => <Text>asdfa</Text>,
+              headerRight: () => (
+                <Button
+                  onPress={() => navigation.navigate("Create")}
+                  title="Info"
+                  color="#00cc00"
+                />
+              ),
+            })}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </ContextProvider>

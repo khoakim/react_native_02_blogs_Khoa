@@ -61,3 +61,11 @@ PUT /blogposts/{id} Update blog post given ID
 Delete /blogposts/{id} Delete blog post given ID
 
 =====
+Set up "Prettier"
+
+- Set "Format on save"
+- Set up default formatter
+- 1. In a javascript file -- This isi important
+  2. Open Commandlett (Ctrl + Shift + P)
+  3. Choose "Format document With"
+  4. Choose "Prettier"

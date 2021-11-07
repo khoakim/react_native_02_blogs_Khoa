@@ -1,33 +1,32 @@
-import React, { useContext, useEffect } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  FlatList,
-  TouchableOpacity,
-} from "react-native";
-import fetch from "../api/jsonServer";
-import { AntDesign } from "@expo/vector-icons";
-import { blogContext as BlogContext } from "../context/blogContext";
+import React, {useContext, useEffect} from "react";
+import {View, Text, StyleSheet, FlatList, TouchableOpacity} from "react-native";
+import {useIsFocused} from "@react-navigation/native";
 
-const IndexScreen = ({ navigation }) => {
-  const { blogPosts, getPost } = useContext(BlogContext);
+import {AntDesign} from "@expo/vector-icons";
+import {blogContext as BlogContext} from "../context/BlogContext";
+
+const IndexScreen = ({navigation}) => {
+  const {blogPosts, getPost} = useContext(BlogContext);
+
+  // use isFocused hook to check if the screen now has focus
+  // if it is, then refresh data
+  const isFocused = useIsFocused();
   useEffect(() => {
-    console.log("GetPosts");
+    // console.log("GetPosts");
     getPost();
-  }, []);
+  }, [isFocused]);
   return (
     <View>
       <Text>Index</Text>
       <FlatList
         data={blogPosts}
-        keyExtractor={blogPost => blogPost.id}
-        renderItem={({ item }) => {
+        keyExtractor={(blogPost) => blogPost.id}
+        renderItem={({item}) => {
           return (
             <View style={styles.itemContainer}>
               <TouchableOpacity
                 style={styles.item}
-                onPress={() => navigation.navigate("Show")}
+                onPress={() => navigation.navigate("Show", {item})}
               >
                 <Text>{item.title} </Text>
               </TouchableOpacity>

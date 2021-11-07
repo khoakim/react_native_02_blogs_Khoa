@@ -8,7 +8,7 @@ import CreateScreen from "./src/screens/CreateScreen";
 import EditScreen from "./src/screens/EditScreen";
 import ShowScreen from "./src/screens/ShowScreen";
 import IndexScreen from "./src/screens/IndexScreen";
-import ContextProvider from "./src/context/blogContext";
+import ContextProvider from "./src/context/BlogContext";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -29,7 +29,7 @@ export default function App() {
             name="Index"
             component={IndexScreen}
             options={({navigation}) => ({
-              headerTitle: (props) => <Text>asdfa</Text>,
+              headerTitle: (props) => <Text>Index</Text>,
               headerRight: () => (
                 <Button
                   onPress={() => navigation.navigate("Create")}
